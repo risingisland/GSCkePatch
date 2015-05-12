@@ -3,10 +3,10 @@
 /**
 * @name ckeditor plugin
 * description of
-* @version 0.3
+* @version 0.4
 * @author Shawn Alverson
 * @link http://getsimple-cmd.info
-* @file framework.php
+* @file GSCkePatch.php
 */
 
 $pluginid = "GSCkePatch";
@@ -14,10 +14,10 @@ $pluginid = "GSCkePatch";
 function init_GSCkePatch($pluginid){
 	$thisfile = basename(__FILE__, ".php");	// Plugin File
 	$name     = $pluginid;
-	$version  = "0.3";
+	$version  = "0.4";
 	$author   = "getsimple";
 	$url      = "http://get-simple.info";
-	$desc     = "Overrides ckeditor 3.x with 4.4.7";
+	$desc     = "Overrides ckeditor 3.x with 4.4.7 (included Codemirror, Youtube plugins and multi-lingual support.)";
 	$type     = "";
 	$func     = "";
 
@@ -26,7 +26,7 @@ function init_GSCkePatch($pluginid){
 
 init_GSCkePatch($pluginid);
 
-if($HTMLEDITOR && get_filename_id() == 'edit'){
+if(get_filename_id() == 'edit' && $HTMLEDITOR){
 	add_action("header",$pluginid.'_header',$pluginid);
 	add_action("edit-content",$pluginid.'_edit_content');
 }
